@@ -19,13 +19,26 @@ type LanguageContextValue = {
 const LanguageContext = createContext<LanguageContextValue | null>(null);
 const STORAGE_KEY = "site-locale";
 
+function readStoredLocale(): Locale | null {
+  try {
+    const stored = window.localStorage.getItem(STORAGE_KEY);
+    if (stored === "de" || stored === "en") return stored;
+  } catch {
+    /* ignore */
+  }
+  return null;
+}
+
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const [locale, setLocaleState] = useState<Locale>("de");
 
   useEffect(() => {
-    const stored = window.localStorage.getItem(STORAGE_KEY);
-    if (stored === "de" || stored === "en") {
+    const stored = readStoredLocale();
+    if (stored && stored !== "de") {
       setLocaleState(stored);
+    }
+    if (stored) {
+      document.documentElement.lang = stored;
     }
   }, []);
 
@@ -34,8 +47,14 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   }, [locale]);
 
   const setLocale = useCallback((next: Locale) => {
+    if (next !== "de" && next !== "en") return;
     setLocaleState(next);
-    window.localStorage.setItem(STORAGE_KEY, next);
+    try {
+      window.localStorage.setItem(STORAGE_KEY, next);
+    } catch {
+      /* ignore */
+    }
+    document.documentElement.lang = next;
   }, []);
 
   const value = useMemo(

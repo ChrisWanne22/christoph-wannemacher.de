@@ -1,0 +1,494 @@
+/* ── Process tunnel — click/swipe driven ── */
+
+.processTunnel {
+  position: relative;
+  height: 100vh;
+  height: -webkit-fill-available;
+  height: 100svh;
+  height: 100dvh;
+  min-height: 0;
+}
+
+@media (min-width: 768px) {
+  .processTunnel {
+    min-height: 600px;
+  }
+}
+
+.processViewport {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  background: #f3f3f3;
+  isolation: isolate;
+}
+
+.processScene {
+  z-index: 1;
+  pointer-events: none !important;
+}
+
+.processHeader {
+  position: absolute;
+  z-index: 22;
+  left: 0;
+  right: 0;
+  top: 3.75rem;
+  padding: 0 1.25rem;
+  pointer-events: none;
+  will-change: opacity, transform;
+}
+
+@media (min-width: 640px) {
+  .processHeader {
+    top: 4.5rem;
+    padding: 0 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .processHeader {
+    top: 6rem;
+    padding: 0 2rem;
+  }
+}
+
+.processHeaderInner {
+  max-width: 72rem;
+  margin: 0 auto;
+}
+
+.processHeading {
+  font-size: 1.375rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+@media (min-width: 640px) {
+  .processHeading {
+    font-size: 2.25rem;
+  }
+}
+
+.processIntro {
+  margin-top: 0.75rem;
+  max-width: 32rem;
+  font-size: 0.8125rem;
+  line-height: 1.65;
+  color: var(--muted);
+}
+
+@media (min-width: 640px) {
+  .processIntro {
+    margin-top: 1rem;
+    font-size: 0.9375rem;
+    line-height: 1.75;
+  }
+}
+
+/* ── Mobile horizontal swipe track (native scroll-snap) ── */
+.swipeTrack {
+  display: none;
+}
+
+.swipeSlide {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1.25rem 5.5rem;
+  box-sizing: border-box;
+}
+
+.swipeKeywords {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  max-width: 22rem;
+}
+
+.swipeHint {
+  display: none;
+}
+
+@media (max-width: 1023px) {
+  .swipeTrack {
+    display: flex;
+    position: absolute;
+    z-index: 40;
+    inset: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-x;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+  }
+
+  .swipeTrack::-webkit-scrollbar {
+    display: none;
+  }
+
+  .keywordStage {
+    display: none;
+  }
+
+  .swipeHint {
+    display: block;
+    position: absolute;
+    z-index: 55;
+    left: 50%;
+    bottom: calc(5.5rem + env(safe-area-inset-bottom, 0px));
+    transform: translateX(-50%);
+    font-size: 0.5625rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted-soft);
+    pointer-events: none;
+    white-space: nowrap;
+  }
+
+  .stepNav {
+    z-index: 90;
+  }
+}
+
+/* ── Desktop center stage ── */
+.keywordStage {
+  position: absolute;
+  z-index: 24;
+  left: 50%;
+  top: 46%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  width: min(96%, 46rem);
+  padding: 0 0.25rem;
+  pointer-events: none;
+}
+
+@media (min-width: 640px) {
+  .keywordStage {
+    gap: 0.75rem;
+    width: min(94%, 48rem);
+    padding: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .keywordStage {
+    top: 50%;
+    gap: 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .swipeTrack {
+    display: none !important;
+  }
+
+  .swipeHint {
+    display: none !important;
+  }
+}
+
+.clickZone {
+  position: relative;
+  flex: 1 1 auto;
+  min-width: 0;
+  height: min(48vh, 22rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: default;
+  outline: none;
+  pointer-events: auto;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (min-width: 768px) {
+  .clickZone {
+    height: min(52vh, 24rem);
+  }
+}
+
+.clickZoneActive {
+  cursor: pointer;
+}
+
+.clickZoneActive:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--foreground) 35%, transparent);
+  outline-offset: 4px;
+}
+
+.keywordLayer {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.keywordPanel {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+  text-align: center;
+  pointer-events: none;
+}
+
+.keywordLine {
+  display: block;
+  font-size: clamp(1.625rem, 8vw, 3.75rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  color: var(--foreground);
+}
+
+@media (min-width: 640px) {
+  .keywordLine {
+    font-size: clamp(2.25rem, 4.8vw, 4rem);
+  }
+}
+
+.keywordSubtitle {
+  display: block;
+  margin-top: 1rem;
+  max-width: 20rem;
+  font-size: 0.75rem;
+  line-height: 1.6;
+  letter-spacing: 0.03em;
+  color: var(--muted);
+}
+
+@media (min-width: 640px) {
+  .keywordSubtitle {
+    margin-top: 1.5rem;
+    max-width: 22rem;
+    font-size: 0.9375rem;
+  }
+}
+
+.sideNavButton {
+  position: relative;
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--foreground);
+  cursor: pointer;
+  opacity: 0.42;
+  pointer-events: auto;
+  touch-action: manipulation;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.sideNavButton:first-of-type:hover:not(:disabled),
+.sideNavButton:first-of-type:focus-visible:not(:disabled) {
+  opacity: 0.9;
+  transform: translateX(-2px);
+}
+
+.sideNavButton:last-of-type:hover:not(:disabled),
+.sideNavButton:last-of-type:focus-visible:not(:disabled) {
+  opacity: 0.9;
+  transform: translateX(2px);
+}
+
+.sideNavButton:focus-visible {
+  outline: 2px solid var(--foreground);
+  outline-offset: 3px;
+}
+
+.sideNavButton:disabled {
+  opacity: 0.14;
+  cursor: default;
+}
+
+.sideNavIcon {
+  font-size: 1.25rem;
+  line-height: 1;
+  font-weight: 300;
+  pointer-events: none;
+}
+
+@media (min-width: 640px) {
+  .sideNavIcon {
+    font-size: 1.625rem;
+  }
+}
+
+.stepNav {
+  position: absolute;
+  z-index: 60;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0.625rem 0.75rem calc(0.75rem + env(safe-area-inset-bottom, 0px));
+  pointer-events: auto;
+  touch-action: manipulation;
+  isolation: isolate;
+  background: linear-gradient(
+    to top,
+    color-mix(in srgb, #f3f3f3 96%, transparent) 55%,
+    transparent
+  );
+}
+
+@media (min-width: 640px) {
+  .stepNav {
+    padding: 1rem 1.5rem calc(1.375rem + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+.stepNavList {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.375rem;
+  list-style: none;
+  margin: 0 auto;
+  padding: 0.25rem 0;
+  max-width: 72rem;
+}
+
+@media (min-width: 768px) {
+  .stepNavList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 1.25rem;
+  }
+}
+
+.stepNavButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 2.75rem;
+  padding: 0.375rem 0.25rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  opacity: 0.38;
+  pointer-events: auto;
+  touch-action: manipulation;
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (min-width: 768px) {
+  .stepNavButton {
+    align-items: flex-start;
+    flex-shrink: 0;
+    min-width: 5.5rem;
+    min-height: auto;
+    padding: 0.375rem 0.5rem;
+  }
+}
+
+.stepNavButton:hover,
+.stepNavButton:focus-visible {
+  opacity: 0.72;
+}
+
+.stepNavButton.isActive {
+  opacity: 1;
+}
+
+.stepNavButton:focus-visible {
+  outline: 2px solid var(--foreground);
+  outline-offset: 2px;
+}
+
+.stepNavNumber,
+.stepNavTitle {
+  pointer-events: none;
+}
+
+.stepNavNumber {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.5625rem;
+  letter-spacing: 0.16em;
+  color: var(--muted-soft);
+}
+
+@media (min-width: 640px) {
+  .stepNavNumber {
+    font-size: 0.625rem;
+    letter-spacing: 0.18em;
+  }
+}
+
+.stepNavTitle {
+  margin-top: 0.15rem;
+  font-size: 0.5625rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 1.25;
+}
+
+@media (min-width: 640px) {
+  .stepNavTitle {
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+  }
+}
+
+@media (min-width: 768px) {
+  .stepNavTitle {
+    text-align: left;
+    white-space: nowrap;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stepNavButton,
+  .sideNavButton {
+    transition: none;
+  }
+
+  .swipeTrack {
+    scroll-behavior: auto;
+  }
+
+  .sideNavButton:first-of-type:hover:not(:disabled),
+  .sideNavButton:first-of-type:focus-visible:not(:disabled),
+  .sideNavButton:last-of-type:hover:not(:disabled),
+  .sideNavButton:last-of-type:focus-visible:not(:disabled) {
+    transform: none;
+  }
+}
