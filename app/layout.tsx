@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { LanguageProvider } from "./components/language-provider";
 import { StickyContactButton } from "./components/sticky-contact-button";
+import { withBasePath } from "./lib/paths";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -28,8 +29,8 @@ export const metadata: Metadata = {
     "AI",
   ],
   icons: {
-    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
-    apple: [{ url: "/favicon.svg", type: "image/svg+xml" }],
+    icon: [{ url: withBasePath("/favicon.svg"), type: "image/svg+xml" }],
+    apple: [{ url: withBasePath("/favicon.svg"), type: "image/svg+xml" }],
   },
 };
 

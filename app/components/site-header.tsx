@@ -3,6 +3,7 @@
 import { useEffect, useId, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { LINKEDIN_URL } from "../lib/content";
+import { withBasePath } from "../lib/paths";
 import { ExternalLinkIcon } from "./external-link-icon";
 import { LanguageSwitcher } from "./language-switcher";
 import { useLanguage } from "./language-provider";
@@ -113,9 +114,9 @@ export function SiteHeader({
   const hideLogo = showOverHeroStyle && !compact;
 
   const links: NavLink[] = [
-    { href: "/#top", label: t.nav.home },
-    { href: "/#work", label: t.nav.work },
-    { href: "/#beyond", label: t.nav.about },
+    { href: withBasePath("/#top"), label: t.nav.home },
+    { href: withBasePath("/#work"), label: t.nav.work },
+    { href: withBasePath("/#beyond"), label: t.nav.about },
     { href: LINKEDIN_URL, label: t.nav.contact, external: true },
   ];
 
@@ -139,20 +140,30 @@ export function SiteHeader({
               onClick={(event) => event.stopPropagation()}
             >
               <nav className="flex flex-col gap-1" aria-label="Mobile">
-                {links.map((link) => (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    className="nav-cw-mobile inline-flex min-h-11 items-center gap-1.5 py-2.5 text-foreground touch-manipulation"
-                    onClick={closeMenu}
-                    {...(link.external
-                      ? { target: "_blank", rel: "noopener noreferrer" }
-                      : {})}
-                  >
-                    {link.label}
-                    {link.external ? <ExternalLinkIcon /> : null}
-                  </a>
-                ))}
+                {links.map((link) =>
+                  link.external ? (
+                    <a
+                      key={link.href}
+                      href={link.href}
+                      className="nav-cw-mobile inline-flex min-h-11 items-center gap-1.5 py-2.5 text-foreground touch-manipulation"
+                      onClick={closeMenu}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {link.label}
+                      <ExternalLinkIcon />
+                    </a>
+                  ) : (
+                    <a
+                      key={link.href}
+                      href={link.href}
+                      className="nav-cw-mobile inline-flex min-h-11 items-center gap-1.5 py-2.5 text-foreground touch-manipulation"
+                      onClick={closeMenu}
+                    >
+                      {link.label}
+                    </a>
+                  ),
+                )}
               </nav>
 
               <div className="mt-4 border-t border-line-subtle pt-4">
@@ -190,7 +201,7 @@ export function SiteHeader({
           }`}
         >
           <a
-            href="/#top"
+            href={withBasePath("/#top")}
             className={`brand-logo shrink-0 transition-opacity hover:opacity-80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foreground ${
               hideLogo ? "pointer-events-none invisible w-0 overflow-hidden" : ""
             }`}
@@ -205,19 +216,28 @@ export function SiteHeader({
             className="ml-auto hidden items-center gap-10 lg:flex"
             aria-label="Primary"
           >
-            {links.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="nav-cw inline-flex items-center gap-1.5 transition-colors hover:text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foreground"
-                {...(link.external
-                  ? { target: "_blank", rel: "noopener noreferrer" }
-                  : {})}
-              >
-                {link.label}
-                {link.external ? <ExternalLinkIcon /> : null}
-              </a>
-            ))}
+            {links.map((link) =>
+              link.external ? (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="nav-cw inline-flex items-center gap-1.5 transition-colors hover:text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foreground"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {link.label}
+                  <ExternalLinkIcon />
+                </a>
+              ) : (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="nav-cw inline-flex items-center gap-1.5 transition-colors hover:text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foreground"
+                >
+                  {link.label}
+                </a>
+              ),
+            )}
           </nav>
 
           <div className="ml-auto flex items-center gap-2 sm:gap-4 lg:ml-8">

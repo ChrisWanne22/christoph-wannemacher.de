@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState, type ReactNode } from "react";
+import { withBasePath } from "../lib/paths";
 import { buildCubicSpace, TunnelCube } from "../lib/tunnel-cubes";
 import { SiteLogo } from "./site-logo";
 
@@ -37,7 +38,7 @@ export function CubicTunnelHero({ children }: { children: ReactNode }) {
     <section className="tunnel-section tunnel-section-static" aria-label="Hero">
       <div className="tunnel-sticky">
         <a
-          href="/#top"
+          href={withBasePath("/#top")}
           className={`hero-brand-mark${headerCompact ? " is-scrolled" : ""}`}
           aria-label="CW"
         >

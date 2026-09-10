@@ -1,11 +1,12 @@
 import Image from "next/image";
+import { withBasePath } from "../lib/paths";
 
 type SiteLogoProps = {
   className?: string;
   size?: "sm" | "md" | "hero";
 };
 
-const LOGO_SRC = "/logo/cw-monogram-bold.svg";
+const LOGO_SRC = withBasePath("/logo/cw-monogram-bold.svg");
 
 const sizes = {
   sm: { width: 240, height: 160, className: "h-16 w-auto" },

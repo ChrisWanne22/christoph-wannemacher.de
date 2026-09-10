@@ -1,6 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { LINKEDIN_URL } from "../lib/content";
+import { withBasePath } from "../lib/paths";
 import { ExternalLinkIcon } from "./external-link-icon";
 import { LanguageSwitcher } from "./language-switcher";
 import { useLanguage } from "./language-provider";
@@ -14,9 +16,9 @@ export function SiteFooter() {
   const year = new Date().getFullYear();
 
   const navLinks = [
-    { href: "/#top", label: t.nav.home },
-    { href: "/#work", label: t.nav.work },
-    { href: "/#beyond", label: t.nav.about },
+    { href: withBasePath("/#top"), label: t.nav.home },
+    { href: withBasePath("/#work"), label: t.nav.work },
+    { href: withBasePath("/#beyond"), label: t.nav.about },
   ];
 
   return (
@@ -25,7 +27,7 @@ export function SiteFooter() {
         <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
           <div>
             <a
-              href="/"
+              href={withBasePath("/")}
               className={`brand-logo inline-block ${linkClass}`}
               aria-label={t.footer.name}
             >
@@ -61,14 +63,14 @@ export function SiteFooter() {
                 </a>
               </li>
               <li>
-                <a href="/imprint" className={linkClass}>
+                <Link href="/imprint" className={linkClass}>
                   {t.footer.imprint}
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/privacy" className={linkClass}>
+                <Link href="/privacy" className={linkClass}>
                   {t.footer.privacy}
-                </a>
+                </Link>
               </li>
             </ul>
 
