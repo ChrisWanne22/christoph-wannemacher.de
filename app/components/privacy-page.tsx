@@ -3,6 +3,9 @@
 import { LegalLayout } from "./legal-layout";
 import { useLanguage } from "./language-provider";
 
+const linkClass =
+  "text-foreground underline decoration-line underline-offset-4 transition-colors hover:decoration-foreground";
+
 export function PrivacyPage() {
   const { t } = useLanguage();
   const c = t.privacy;
@@ -28,6 +31,22 @@ export function PrivacyPage() {
             {section.paragraphs.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
             ))}
+            {"address" in section && section.address ? (
+              <p>
+                {section.address.name}
+                <br />
+                {section.address.street}
+                <br />
+                {section.address.city}
+                <br />
+                {section.address.country}
+              </p>
+            ) : null}
+            {"email" in section && section.email ? (
+              <p>
+                {section.email.label}: [{section.email.address}]
+              </p>
+            ) : null}
             {"list" in section && section.list ? (
               <ul className="list-disc space-y-2 pl-5">
                 {section.list.map((item) => (
@@ -37,6 +56,18 @@ export function PrivacyPage() {
             ) : null}
             {"closing" in section && section.closing ? (
               <p>{section.closing}</p>
+            ) : null}
+            {"link" in section && section.link ? (
+              <p>
+                <a
+                  href={section.link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={linkClass}
+                >
+                  {section.link.label}
+                </a>
+              </p>
             ) : null}
           </section>
         ))}

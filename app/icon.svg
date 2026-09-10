@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="390 140 780 780" role="img" aria-label="CW">
+  <!-- Square crop of cw-monogram-bold.svg; thicker stroke for favicon sizes -->
+  <path
+    d="M 689 587
+       C 657 622, 615 643, 575 643
+       C 495 643, 430 579, 430 500
+       C 430 420, 495 356, 575 356
+       C 615 356, 652 371, 679 402
+       L 798 610
+       L 894 448
+       L 999 622
+       L 1133 408"
+    fill="none"
+    stroke="#111318"
+    stroke-width="42"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>

@@ -32,7 +32,42 @@ function readStoredLocale(): Locale | null {
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const [locale, setLocaleState] = useState<Locale>("de");
 
+  const setLocale = useCallback((next: Locale) => {
+    if (next !== "de" && next !== "en") return;
+    setLocaleState(next);
+    try {
+      window.localStorage.setItem(STORAGE_KEY, next);
+    } catch {
+      /* ignore */
+    }
+    document.documentElement.lang = next;
+    // Reflect language in the URL without a full navigation (helps Safari/debug).
+    try {
+      const url = new URL(window.location.href);
+      if (next === "de") {
+        url.searchParams.delete("lang");
+      } else {
+        url.searchParams.set("lang", next);
+      }
+      window.history.replaceState(window.history.state, "", url.toString());
+    } catch {
+      /* ignore */
+    }
+  }, []);
+
   useEffect(() => {
+    try {
+      const fromUrl = new URLSearchParams(window.location.search).get("lang");
+      if (fromUrl === "en" || fromUrl === "de") {
+        setLocaleState(fromUrl);
+        window.localStorage.setItem(STORAGE_KEY, fromUrl);
+        document.documentElement.lang = fromUrl;
+        return;
+      }
+    } catch {
+      /* ignore */
+    }
+
     const stored = readStoredLocale();
     if (stored && stored !== "de") {
       setLocaleState(stored);
@@ -45,17 +80,6 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     document.documentElement.lang = locale;
   }, [locale]);
-
-  const setLocale = useCallback((next: Locale) => {
-    if (next !== "de" && next !== "en") return;
-    setLocaleState(next);
-    try {
-      window.localStorage.setItem(STORAGE_KEY, next);
-    } catch {
-      /* ignore */
-    }
-    document.documentElement.lang = next;
-  }, []);
 
   const value = useMemo(
     () => ({

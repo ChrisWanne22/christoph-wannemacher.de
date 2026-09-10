@@ -30,24 +30,6 @@ export function CwCubicFrame({ className = "" }: CwElementProps) {
   );
 }
 
-/** Kubische Karte — Rechteck mit abgeschrägter oberer rechter Ecke */
-export function CwCubicCard({ className = "" }: CwElementProps) {
-  return (
-    <svg
-      className={className}
-      viewBox="0 0 64 64"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden
-    >
-      <path
-        d="M 12 10 H 42 L 52 20 V 48 C 52 54 48 54 44 54 H 16 C 10 54 10 48 10 42 V 18 C 10 12 12 10 16 10 H 12"
-        {...strokeProps}
-      />
-    </svg>
-  );
-}
-
 /** Linienelement — horizontale Linie mit 45°-Abwinkelung nach unten */
 export function CwLineElement({ className = "" }: CwElementProps) {
   return (
@@ -74,25 +56,6 @@ export function CwVerticalCap({ className = "" }: CwElementProps) {
       aria-hidden
     >
       <path d="M 6 12 H 46 L 56 2" {...strokeProps} />
-    </svg>
-  );
-}
-
-/** Icon Rahmen — fragmentierter Rahmen mit separater rechter Linie */
-export function CwIconFrame({ className = "" }: CwElementProps) {
-  return (
-    <svg
-      className={className}
-      viewBox="0 0 64 64"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden
-    >
-      <path
-        d="M 48 10 H 18 C 12 10 10 12 10 18 V 46 C 10 52 12 54 18 54 H 48"
-        {...strokeProps}
-      />
-      <path d="M 54 16 V 48" {...strokeProps} />
     </svg>
   );
 }

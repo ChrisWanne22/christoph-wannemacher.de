@@ -15,7 +15,7 @@ export function CapabilityList({
   items: readonly CapabilityItem[];
 }) {
   return (
-    <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+    <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {items.map((item, index) => (
         <Reveal key={item.number} delay={index * 70}>
           <CwTileFrame className="tile group h-full">

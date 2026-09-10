@@ -1,11 +1,12 @@
 "use client";
 
 import { useMemo } from "react";
+import { LINKEDIN_URL } from "../lib/content";
+import { BeliefTiles } from "./belief-tiles";
 import { CapabilityList } from "./capability-list";
 import { CubicTunnelHero } from "./cubic-tunnel-hero";
-import { PillarCards } from "./pillar-cards";
+import { ExternalLinkIcon } from "./external-link-icon";
 import { PortraitFrame } from "./portrait-frame";
-import { ProcessJourney } from "./process-journey";
 import { Reveal } from "./reveal";
 import { SectionScrollNav } from "./section-scroll-nav";
 import { SelectedWork } from "./selected-work";
@@ -20,11 +21,11 @@ export function HomePage() {
   const scrollSections = useMemo(
     () => [
       { id: "top", label: t.scrollNav.hero },
-      { id: "pillars", label: t.scrollNav.pillars },
-      { id: "services", label: t.scrollNav.services },
+      { id: "how", label: t.scrollNav.how },
       { id: "work", label: t.scrollNav.work },
-      { id: "approach", label: t.scrollNav.approach },
-      { id: "about", label: t.scrollNav.about },
+      { id: "beliefs", label: t.scrollNav.beliefs },
+      { id: "curious", label: t.scrollNav.curious },
+      { id: "beyond", label: t.scrollNav.beyond },
       { id: "contact", label: t.scrollNav.contact },
     ],
     [t],
@@ -34,11 +35,9 @@ export function HomePage() {
     <div className="bg-background">
       <SectionScrollNav sections={scrollSections} />
 
-      <SiteHeader overHero revealOnScrollUp />
+      <SiteHeader overHero />
 
       <div id="top" className="relative">
-
-        {/* ── HERO: Cubic Tunnel ── */}
         <CubicTunnelHero>
           <p className="text-kicker animate-hero">{t.hero.greeting}</p>
           <h1 className="text-display animate-hero animate-delay-1">
@@ -52,87 +51,115 @@ export function HomePage() {
             {t.hero.valueProp}
           </p>
           <div className="hero-actions animate-hero animate-delay-3">
-            <a href="#services" className="btn-cw btn-cw-primary">
-              {t.hero.cta} →
+            <a
+              href={LINKEDIN_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-cw btn-cw-primary"
+            >
+              {t.hero.cta}
+              <ExternalLinkIcon />
             </a>
           </div>
         </CubicTunnelHero>
       </div>
 
       <main>
-        {/* ── PILLARS: Strategie / Design / Umsetzung ── */}
+        {/* ── WHAT LIGHTS ME UP ── */}
         <section
-          id="pillars"
+          id="how"
           className="pillar-section pillar-section-overlap scroll-mt-[4.25rem] sm:scroll-mt-24"
-          aria-label="Pillars"
+          aria-labelledby="how-heading"
         >
           <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
-            <PillarCards items={t.pillars.items} />
+            <Reveal>
+              <h2
+                id="how-heading"
+                className="max-w-2xl text-2xl font-semibold leading-snug tracking-tight sm:text-4xl sm:leading-tight"
+              >
+                {t.how.heading}
+              </h2>
+              <p className="mt-6 max-w-2xl text-base leading-7 text-muted sm:leading-8">
+                {t.how.intro}
+              </p>
+            </Reveal>
+            <CapabilityList items={t.how.items} />
           </div>
         </section>
 
-        {/* ── POSITIONING ── */}
+        {/* ── STORIES ── */}
+        <SelectedWork work={t.work} />
+
+        {/* ── LESSONS ── */}
         <section
-          id="positioning"
-          className="relative scroll-mt-[4.25rem] overflow-visible bg-background-secondary sm:scroll-mt-24"
-          aria-labelledby="positioning-heading"
+          id="beliefs"
+          className="relative scroll-mt-[4.25rem] overflow-visible bg-background sm:scroll-mt-24"
+          aria-labelledby="beliefs-heading"
         >
           <div className="relative mx-auto max-w-6xl px-5 py-20 sm:px-8 lg:py-32">
             <Reveal>
               <div className="cw-kicker-row">
                 <CwKickerAccent />
-                <p className="text-kicker">{t.positioning.kicker}</p>
+                <p className="text-kicker">{t.beliefs.kicker}</p>
               </div>
               <h2
-                id="positioning-heading"
-                className="mt-4 max-w-2xl text-2xl font-semibold leading-snug tracking-tight sm:text-4xl sm:leading-tight"
+                id="beliefs-heading"
+                className="mt-4 max-w-2xl text-2xl font-semibold tracking-tight sm:text-4xl"
               >
-                {t.positioning.heading}
+                {t.beliefs.heading}
               </h2>
-              <p className="mt-6 max-w-xl text-base leading-7 text-muted sm:leading-8">
-                {t.positioning.text}
-              </p>
             </Reveal>
+            <BeliefTiles items={t.beliefs.items} />
           </div>
         </section>
 
-        {/* ── SERVICES ── */}
+        {/* ── STILL CURIOUS ── */}
         <section
-          id="services"
-          className="relative scroll-mt-[4.25rem] overflow-visible sm:scroll-mt-24"
-          aria-labelledby="services-heading"
+          id="curious"
+          className="relative scroll-mt-[4.25rem] overflow-visible bg-background-secondary sm:scroll-mt-24"
+          aria-labelledby="curious-heading"
         >
           <div className="relative mx-auto max-w-6xl px-5 py-20 sm:px-8 lg:py-32">
             <Reveal>
+              <div className="cw-kicker-row">
+                <CwKickerAccent />
+                <p className="text-kicker">{t.curious.kicker}</p>
+              </div>
               <h2
-                id="services-heading"
-                className="text-2xl font-semibold tracking-tight sm:text-4xl"
+                id="curious-heading"
+                className="mt-4 max-w-2xl text-2xl font-semibold tracking-tight sm:text-4xl"
               >
-                {t.services.heading}
+                {t.curious.heading}
               </h2>
               <p className="mt-4 max-w-xl text-sm leading-7 text-muted sm:text-base sm:leading-8">
-                {t.services.intro}
+                {t.curious.intro}
               </p>
             </Reveal>
-            <CapabilityList items={t.services.items} />
+
+            <ul className="mt-14 divide-y divide-line-subtle border-y border-line-subtle">
+              {t.curious.items.map((item, index) => (
+                <li key={item.title}>
+                  <Reveal delay={index * 60}>
+                    <div className="grid gap-3 py-8 sm:grid-cols-[minmax(0,0.4fr)_minmax(0,0.6fr)] sm:gap-10">
+                      <h3 className="text-lg font-medium tracking-tight text-foreground sm:text-xl">
+                        {item.title}
+                      </h3>
+                      <p className="text-sm leading-7 text-muted sm:text-base sm:leading-8">
+                        {item.text}
+                      </p>
+                    </div>
+                  </Reveal>
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
 
-        {/* ── WORK ── */}
-        <SelectedWork work={t.work} />
-
-        {/* ── APPROACH ── */}
-        <ProcessJourney
-          heading={t.approach.heading}
-          intro={t.approach.intro}
-          steps={t.approach.steps}
-        />
-
-        {/* ── ABOUT ── */}
+        {/* ── OUTSIDE THE LAPTOP ── */}
         <section
-          id="about"
+          id="beyond"
           className="relative scroll-mt-[4.25rem] overflow-visible bg-background sm:scroll-mt-24"
-          aria-labelledby="about-heading"
+          aria-labelledby="beyond-heading"
         >
           <div className="relative mx-auto grid max-w-6xl gap-14 px-5 py-24 sm:px-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,0.9fr)] lg:items-center lg:gap-20 lg:py-32">
             <Reveal
@@ -143,45 +170,31 @@ export function HomePage() {
             </Reveal>
             <Reveal className="order-2">
               <h2
-                id="about-heading"
+                id="beyond-heading"
                 className="text-2xl font-semibold tracking-tight sm:text-4xl"
               >
-                {t.about.heading}
+                {t.beyond.heading}
               </h2>
               <p className="mt-8 max-w-lg text-base leading-7 text-muted sm:leading-8">
-                {t.about.bio}
+                {t.beyond.bio}
               </p>
-              <div className="mt-10 max-w-lg">
-                <h3 className="text-lg font-medium tracking-tight text-foreground">
-                  {t.about.styleHeading}
-                </h3>
-                <p className="mt-3 text-base leading-7 text-muted sm:leading-8">
-                  {t.about.styleText}
-                </p>
-              </div>
               <dl className="mt-10 grid max-w-lg gap-5 sm:grid-cols-2">
-                {t.about.facts.map((fact) => (
-                  <div key={fact.label}>
+                {t.beyond.interests.map((interest) => (
+                  <div key={interest.label}>
                     <dt className="text-xs tracking-wide text-muted-soft">
-                      {fact.label}
+                      {interest.label}
                     </dt>
                     <dd className="mt-1 text-sm leading-6 text-foreground">
-                      {fact.value}
+                      {interest.value}
                     </dd>
                   </div>
                 ))}
               </dl>
-              <a
-                href="#contact"
-                className="btn-cw btn-cw-primary mt-10"
-              >
-                {t.about.cta} →
-              </a>
             </Reveal>
           </div>
         </section>
 
-        {/* ── CONTACT ── */}
+        {/* ── SAY HI ── */}
         <section
           id="contact"
           className="relative scroll-mt-[4.25rem] sm:scroll-mt-24"
@@ -192,21 +205,24 @@ export function HomePage() {
               <div className="contact-panel">
                 <CwCubicFrame className="contact-panel-frame" />
                 <div className="contact-panel-inner">
-                <h2
-                  id="contact-heading"
-                  className="max-w-xl text-2xl font-semibold leading-snug tracking-tight sm:text-4xl sm:leading-tight"
-                >
-                  {t.contact.heading}
-                </h2>
-                <p className="mt-5 text-lg text-muted sm:text-xl">
-                  {t.contact.body}
-                </p>
-                <a
-                  href="mailto:[EMAIL PLACEHOLDER]"
-                  className="btn-cw btn-cw-primary mt-10"
-                >
-                  {t.contact.cta} →
-                </a>
+                  <h2
+                    id="contact-heading"
+                    className="max-w-xl text-2xl font-semibold leading-snug tracking-tight sm:text-4xl sm:leading-tight"
+                  >
+                    {t.contact.heading}
+                  </h2>
+                  <p className="mt-5 text-lg text-muted sm:text-xl">
+                    {t.contact.body}
+                  </p>
+                  <a
+                    href={LINKEDIN_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-cw btn-cw-primary mt-10"
+                  >
+                    {t.contact.cta}
+                    <ExternalLinkIcon />
+                  </a>
                 </div>
               </div>
             </Reveal>

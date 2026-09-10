@@ -29,16 +29,8 @@ export function ImprintPage() {
           <br />
           {c.country}
         </p>
-      </section>
-
-      <section className="mt-12 space-y-3 text-base leading-7 text-muted sm:leading-8">
-        <h2 className="text-lg font-medium tracking-tight text-foreground">
-          {c.contactHeading}
-        </h2>
         <p>
-          {c.emailLabel}: {c.email}
-          <br />
-          {c.phoneLabel}: {c.phone}
+          {c.emailLabel}: [{c.email}]
         </p>
       </section>
 
@@ -47,9 +39,13 @@ export function ImprintPage() {
           {c.responsibleHeading}
         </h2>
         <p>
-          {c.responsibleName}
+          {c.name}
           <br />
-          {c.responsibleAddress}
+          {c.street}
+          <br />
+          {c.city}
+          <br />
+          {c.country}
         </p>
       </section>
 

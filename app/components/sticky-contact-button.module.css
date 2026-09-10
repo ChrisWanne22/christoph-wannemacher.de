@@ -63,16 +63,12 @@
   outline-offset: 3px;
 }
 
-.arrow {
-  font-size: 0.625rem;
-  line-height: 1;
-  opacity: 0.55;
-  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.25s ease;
+.externalIcon {
+  opacity: 0.7;
 }
 
-.sticky:hover .arrow {
-  opacity: 0.9;
-  transform: translateX(2px);
+.sticky:hover .externalIcon {
+  opacity: 0.95;
 }
 
 @media (min-width: 640px) {
@@ -85,10 +81,6 @@
     font-size: 0.6875rem;
     letter-spacing: 0.14em;
   }
-
-  .arrow {
-    font-size: 0.75rem;
-  }
 }
 
 @media (min-width: 1024px) {
@@ -100,13 +92,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .sticky,
-  .arrow {
+  .sticky {
     transition: none;
-  }
-
-  .sticky:hover .arrow {
-    transform: none;
   }
 
   .isVisible,

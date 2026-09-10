@@ -1,6 +1,7 @@
 "use client";
 
 import { LINKEDIN_URL } from "../lib/content";
+import { ExternalLinkIcon } from "./external-link-icon";
 import { LanguageSwitcher } from "./language-switcher";
 import { useLanguage } from "./language-provider";
 import { SiteLogo } from "./site-logo";
@@ -15,8 +16,7 @@ export function SiteFooter() {
   const navLinks = [
     { href: "/#top", label: t.nav.home },
     { href: "/#work", label: t.nav.work },
-    { href: "/#about", label: t.nav.about },
-    { href: "/#contact", label: t.nav.contact },
+    { href: "/#beyond", label: t.nav.about },
   ];
 
   return (
@@ -31,7 +31,7 @@ export function SiteFooter() {
             >
               <SiteLogo size="sm" />
             </a>
-            <p className="mt-3 text-sm text-muted">{t.footer.email}</p>
+            <p className="mt-3 text-sm text-muted">{t.footer.name}</p>
           </div>
 
           <nav
@@ -54,9 +54,10 @@ export function SiteFooter() {
                   href={LINKEDIN_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={linkClass}
+                  className={`inline-flex items-center gap-1.5 ${linkClass}`}
                 >
                   {t.footer.linkedin}
+                  <ExternalLinkIcon />
                 </a>
               </li>
               <li>
