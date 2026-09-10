@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { LanguageProvider } from "./components/language-provider";
 import { StickyContactButton } from "./components/sticky-contact-button";
 import { withBasePath } from "./lib/paths";
+import { LINKEDIN_PROFILE_URL, SITE_NAME, SITE_URL } from "./lib/site";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -15,10 +16,15 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const title =
+  "Christoph Wannemacher – Product Owner, Innovation & Digital Transformation";
+const description =
+  "Christoph Wannemacher – Product Owner, Innovation Manager und Digital Transformation Manager. Geschichten über Menschen, Produkte, Innovation und das gemeinsame Machen.";
+
 export const metadata: Metadata = {
-  title: "Christoph Wannemacher — Ideen. Machen.",
-  description:
-    "Christoph Wannemacher: stories about having ideas, building things, figuring stuff out with people, and staying curious — including AI, digital products and life outside the laptop.",
+  metadataBase: new URL(SITE_URL),
+  title,
+  description,
   keywords: [
     "Christoph Wannemacher",
     "Product Owner",
@@ -28,6 +34,37 @@ export const metadata: Metadata = {
     "Agile",
     "AI",
   ],
+  authors: [{ name: SITE_NAME, url: SITE_URL }],
+  creator: SITE_NAME,
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    locale: "de_DE",
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    title,
+    description,
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: SITE_NAME,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: ["/og-image.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
   icons: {
     icon: [{ url: withBasePath("/favicon.svg"), type: "image/svg+xml" }],
     apple: [{ url: withBasePath("/favicon.svg"), type: "image/svg+xml" }],
@@ -40,6 +77,15 @@ export const viewport: Viewport = {
   viewportFit: "cover",
 };
 
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: SITE_NAME,
+  url: SITE_URL,
+  jobTitle: "Product Owner / Digital Transformation Manager",
+  sameAs: [LINKEDIN_PROFILE_URL],
+};
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
@@ -48,6 +94,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       suppressHydrationWarning
     >
       <body className="min-h-screen bg-background text-foreground font-sans">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
         <LanguageProvider>
           {children}
           <StickyContactButton />
