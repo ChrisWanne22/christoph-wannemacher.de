@@ -15,7 +15,7 @@ const nextConfig: NextConfig = {
   // Dev-only: allow iPhone/LAN and 127.0.0.1 to load Turbopack client chunks.
   // Safari requests crossorigin scripts with an Origin header; without this,
   // Next returns 403 → React never hydrates → menu/hamburger does nothing.
-  allowedDevOrigins: ["127.0.0.1", "192.168.178.97"],
+  allowedDevOrigins: ["127.0.0.1"],
 };
 
 export default nextConfig;
