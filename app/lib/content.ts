@@ -284,7 +284,13 @@ export const content = {
             "Du hast außerdem das Recht, dich bei einer Datenschutz-Aufsichtsbehörde über die Verarbeitung deiner personenbezogenen Daten zu beschweren.",
         },
         {
-          heading: "10. Aktualität dieser Datenschutzerklärung",
+          heading: "10. Hinweis zu KI-generierten Inhalten",
+          paragraphs: [
+            "Einige der auf dieser Website verwendeten Projektillustrationen wurden mithilfe generativer KI erstellt und anschließend für die Verwendung auf der Website aufbereitet.",
+          ],
+        },
+        {
+          heading: "11. Aktualität dieser Datenschutzerklärung",
           paragraphs: [
             "Diese Datenschutzerklärung wird angepasst, wenn sich die technische Gestaltung oder die auf dieser Website eingesetzten Dienste ändern oder eine Anpassung aufgrund gesetzlicher Anforderungen erforderlich wird.",
           ],
@@ -571,7 +577,13 @@ export const content = {
             "You also have the right to lodge a complaint with a data protection supervisory authority about the processing of your personal data.",
         },
         {
-          heading: "10. Updates to this privacy policy",
+          heading: "10. Note on AI-generated content",
+          paragraphs: [
+            "Some of the project illustrations used on this website were created with the help of generative AI and then prepared for use on the website.",
+          ],
+        },
+        {
+          heading: "11. Updates to this privacy policy",
           paragraphs: [
             "This privacy policy will be updated if the technical setup or the services used on this website change, or if an update is required due to legal requirements.",
           ],
