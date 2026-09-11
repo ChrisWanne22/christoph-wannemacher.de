@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+import { withBasePath } from "../lib/paths";
 import { CwKickerAccent } from "./cw-design-elements";
 import { Reveal } from "./reveal";
 import styles from "./selected-work.module.css";
@@ -12,6 +14,7 @@ export type WorkProject = {
   subtitle: string;
   text: string;
   metric: string;
+  image: string;
   span: "default" | "full";
 };
 
@@ -53,6 +56,15 @@ export function SelectedWork({ work }: { work: WorkContent }) {
             >
               <Reveal delay={Math.min(index * 70, 280)} className="h-full">
                 <article className={styles.card}>
+                  <div className={styles.media}>
+                    <Image
+                      src={withBasePath(project.image)}
+                      alt={project.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 720px"
+                      className={styles.mediaImage}
+                    />
+                  </div>
                   <div className={styles.body}>
                     <div className={styles.meta}>
                       <span className={styles.number}>{project.number}</span>

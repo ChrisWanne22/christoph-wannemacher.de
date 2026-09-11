@@ -28,7 +28,7 @@ export const content = {
     },
     hero: {
       greeting: "Christoph Wannemacher",
-      headlineLines: ["Ideen.", "Machen."],
+      headlineLines: ["Ideen.", "Tun."],
       valueProp:
         "Ich bin neugierig auf fast alles, was neu und ein bisschen knifflig ist. Ich mag es, Gedanken zu sortieren, Dinge auszuprobieren und daraus etwas Echtes zu machen.",
       cta: "Sag hallo auf LinkedIn",
@@ -68,8 +68,9 @@ export const content = {
           title: "Das Gesundheitsportal",
           subtitle:
             "Eine große Ideenliste. Ein sehr großes Backlog. Achtzehn Monate später: Go-Live.",
-          text: "Es begann mit einer langen Liste aus Ideen, Wünschen und Anforderungen — und Diskussionen darüber, was zuerst kommen soll. Also saßen wir vor einem sehr großen Backlog. Wir schoben um, stritten, einigten uns, priorisierten. Dann nochmal. Und nochmal. Was folgte: unzählige Gespräche, Verhandlungen, Änderungen, Iterationen und Development-Sprints. Achtzehn Monate später ging das Gesundheitsportal live — ein digitaler Service für Bürger, Organisationen und Gesundheitsbehörden.",
+          text: "Es begann mit einer langen Liste aus Ideen, Wünschen und Anforderungen — und Diskussionen darüber, was zuerst kommen soll. Also saßen wir vor einem sehr großen Backlog. Wir schoben um, diskutierten, einigten uns, priorisierten. Dann nochmal. Und nochmal. Was folgte: unzählige Gespräche, Verhandlungen, Änderungen, Iterationen und Development-Sprints. Achtzehn Monate später ging das Gesundheitsportal live — ein digitaler Service für Bürger, Organisationen und Gesundheitsbehörden.",
           metric: "18 Monate · Ideenliste → Go-Live",
+          image: "/images/Gesundheitsportal_Illustration.png",
           span: "default",
         },
         {
@@ -80,6 +81,7 @@ export const content = {
           subtitle: "Ein Ort statt vieler Systeme. Und dann fing die eigentliche Arbeit an.",
           text: "Das Ziel klang einfach: aus einer Welt unterschiedlicher B2B-AfterSales-Systeme einen Ort machen, an dem Leute Dinge erledigen können. Was folgte, war alles andere als einfach. Feature um Feature, Integration um Integration, Markt um Markt. Über mehr als 40 Sprints habe ich versucht, Abhängigkeiten zu erkennen, Risiken klein zu halten und das Ganze in Bewegung zu behalten. Es kam immer etwas, das wir nicht vorhergesehen hatten. Aber mit einem starken Team, einer guten Portion Pragmatismus und ziemlich viel Spaß unterwegs haben wir’s hingekriegt — Sprint für Sprint.",
           metric: "40+ Sprints · Europa und darüber hinaus",
+          image: "/images/Aftersales_Illustration.png",
           span: "default",
         },
         {
@@ -90,6 +92,7 @@ export const content = {
           subtitle: "Von „keine Ahnung“ zu „warte… das könnte klappen“",
           text: "Ich freue mich über Räume mit leerer Wand, Sticky Notes und Menschen, die das Problem unterschiedlich sehen. Über 50 Workshops später weiß ich: Die erste Idee ist selten die gute. Wir haben viel ausprobiert, einiges verworfen, und ab und zu war ich genauso unsicher wie alle anderen. Genau dann wird’s interessant — besonders, wenn AI und neue Technik plötzlich Teil der Frage werden.",
           metric: "50+ Workshops · Idee → Versuch → Lernen",
+          image: "/images/DesignThinking_Illustration.png",
           span: "full",
         },
       ],
@@ -312,7 +315,7 @@ export const content = {
     },
     hero: {
       greeting: "Christoph Wannemacher",
-      headlineLines: ["Ideas.", "Make."],
+      headlineLines: ["Ideas.", "Do."],
       valueProp:
         "I'm curious about almost anything that's new and a little tricky. I like sorting thoughts, trying things out, and turning them into something real.",
       cta: "Say hi on LinkedIn",
@@ -352,8 +355,9 @@ export const content = {
           title: "The health portal",
           subtitle:
             "A big list of ideas. A very large backlog. Eighteen months later: go-live.",
-          text: "It started with a big list of ideas, wishes and requirements — and discussions on what should come first. So we sat together with a very large backlog. We moved things around, argued, aligned, prioritized. Then we did it again. And again. What followed were countless discussions, negotiations, changes, iterations and development sprints. Eighteen months later, we shipped the health portal — a digital service used by citizens, organisations and health authorities.",
+          text: "It started with a big list of ideas, wishes and requirements — and discussions on what should come first. So we sat together with a very large backlog. We moved things around, discussed, aligned, prioritized. Then we did it again. And again. What followed were countless discussions, negotiations, changes, iterations and development sprints. Eighteen months later, we shipped the health portal — a digital service used by citizens, organisations and health authorities.",
           metric: "18 months · ideas list → go-live",
+          image: "/images/Gesundheitsportal_Illustration.png",
           span: "default",
         },
         {
@@ -364,6 +368,7 @@ export const content = {
           subtitle: "One place instead of many systems. And then the real work began.",
           text: "The goal was simple: turn a world of different B2B AfterSales systems into one place where people could get things done. What followed was anything but simple. Feature after feature, system integration after system integration, market after market. Across more than 40 sprints, I tried to spot dependencies, reduce risks and keep the whole thing moving. There was always something we hadn't seen coming. But with a great team, a good dose of pragmatism and plenty of fun along the way, we figured it out — one sprint at a time.",
           metric: "40+ sprints · Europe and beyond",
+          image: "/images/Aftersales_Illustration.png",
           span: "default",
         },
         {
@@ -374,6 +379,7 @@ export const content = {
           subtitle: "From “no idea” to “wait… this could work”",
           text: "I light up in rooms with a blank wall, sticky notes and people who see the problem differently. Fifty-plus workshops later I know: the first idea is rarely the good one. We’ve tried a lot, thrown plenty away, and sometimes I was just as unsure as everyone else. That’s usually when it gets interesting — especially when AI and new tech suddenly join the question.",
           metric: "50+ workshops · idea → try → learn",
+          image: "/images/DesignThinking_Illustration.png",
           span: "full",
         },
       ],

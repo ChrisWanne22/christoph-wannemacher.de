@@ -95,6 +95,20 @@
   overflow: hidden;
 }
 
+.media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1983 / 793;
+  background: var(--neutral);
+  border-bottom: 1px solid var(--line-subtle);
+  overflow: hidden;
+}
+
+.mediaImage {
+  object-fit: cover;
+  object-position: center;
+}
+
 .body {
   display: flex;
   flex-direction: column;
