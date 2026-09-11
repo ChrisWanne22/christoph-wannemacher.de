@@ -67,10 +67,33 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: withBasePath("/favicon.ico"), sizes: "48x48" },
-      { url: withBasePath("/favicon.svg"), type: "image/svg+xml" },
+      {
+        url: withBasePath("/favicon.ico"),
+        sizes: "48x48",
+        type: "image/x-icon",
+      },
+      {
+        url: withBasePath("/favicon-48.png"),
+        sizes: "48x48",
+        type: "image/png",
+      },
+      {
+        url: withBasePath("/favicon-96.png"),
+        sizes: "96x96",
+        type: "image/png",
+      },
+      {
+        url: withBasePath("/favicon.svg"),
+        type: "image/svg+xml",
+      },
     ],
-    apple: [{ url: withBasePath("/favicon.svg"), type: "image/svg+xml" }],
+    apple: [
+      {
+        url: withBasePath("/apple-touch-icon.png"),
+        sizes: "180x180",
+        type: "image/png",
+      },
+    ],
   },
 };
 
