@@ -47,7 +47,10 @@ export function HomePage() {
               </span>
             ))}
           </h1>
-          <p className="hero-lead animate-hero animate-delay-2">
+          <p className="hero-keywords animate-hero animate-delay-2">
+            {t.hero.keywords}
+          </p>
+          <p className="hero-lead animate-hero animate-delay-3">
             {t.hero.valueProp}
           </p>
           <div className="hero-actions animate-hero animate-delay-3">

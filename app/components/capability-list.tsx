@@ -6,6 +6,7 @@ import { Reveal } from "./reveal";
 type CapabilityItem = {
   number: string;
   title: string;
+  subtitle: string;
   text: string;
 };
 
@@ -32,12 +33,7 @@ export function CapabilityList({
               <p className="mt-3 flex-1 text-sm leading-7 text-muted">
                 {item.text}
               </p>
-              <span
-                className="tile-arrow mt-6 inline-flex text-sm text-foreground"
-                aria-hidden
-              >
-                →
-              </span>
+              <p className="capability-subtitle mt-5">{item.subtitle}</p>
             </article>
           </CwTileFrame>
         </Reveal>

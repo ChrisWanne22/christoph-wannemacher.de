@@ -29,8 +29,9 @@ export const content = {
     hero: {
       greeting: "Christoph Wannemacher",
       headlineLines: ["Ideen.", "Tun."],
+      keywords: "Innovation · Product Management · Transformation",
       valueProp:
-        "Ich bin neugierig auf fast alles, was neu und ein bisschen knifflig ist. Ich mag es, Gedanken zu sortieren, Dinge auszuprobieren und daraus etwas Echtes zu machen.",
+        "Ich mag gute Ideen und knifflige Herausforderungen. Noch mehr mag ich den Moment, in dem Klarheit entsteht und aus Ideen etwas Echtes wird.",
       cta: "Sag hallo auf LinkedIn",
     },
     how: {
@@ -41,61 +42,92 @@ export const content = {
         {
           number: "01",
           title: "Die Leute kennenlernen",
-          text: "Ich will wissen, mit wem ich arbeite — nicht nur die Rolle. Vertrauen macht fast alles leichter.",
+          subtitle: "Vertrauen aufbauen!",
+          text: "Ich will wissen, mit wem ich arbeite — nicht nur, welche Rolle jemand hat. Vertrauen macht vieles leichter und schafft den Raum für ehrliche Gespräche.",
         },
         {
           number: "02",
           title: "Den Nebel lichten",
-          text: "Ich mag den Moment, wenn aus chaotischer Kreativität plötzlich eine Richtung wird. Wenn aus vielen Gedanken etwas entsteht, bei dem alle sagen: Ja. Genau da wollen wir hin.",
+          subtitle: "Chaos → Richtung!",
+          text: "Ich mag den Moment, wenn aus vielen Gedanken langsam eine Richtung wird. Wenn aus chaotischer Kreativität etwas entsteht, bei dem alle sagen: Ja. Genau da wollen wir hin.",
         },
         {
           number: "03",
           title: "Zusammen arbeiten",
-          text: "Nicht allein am Schreibtisch. Lieber mit Menschen, die ihre ganz eigene Perspektive und Expertise mitbringen. Wenn daraus plötzlich etwas entsteht, das keiner allein so hätte bauen können — genau das macht für mich den Unterschied.",
+          subtitle: "Perspektiven verbinden!",
+          text: "Ich arbeite am liebsten mit Menschen, die ihre eigene Perspektive und Expertise mitbringen. Wenn daraus gemeinsam etwas entsteht, das keiner allein hätte schaffen können, macht das für mich den Unterschied.",
         },
       ],
     },
     work: {
       kicker: "Geschichten von unterwegs",
-      heading: "Dinge, in die ich gestolpert bin",
-      intro:
-        "Kein Lebenslauf. Ein paar Abenteuer.",
+      heading: "Dinge, die ich mitgestaltet habe",
+      intro: "Kein Lebenslauf. Ein paar Abenteuer.",
+      learnMore: "Mehr erfahren →",
+      back: "← Zurück",
+      roleLabel: "Meine Rolle",
+      workLabel: "Meine Arbeit",
       projects: [
         {
           id: "health-portal",
           number: "01",
-          category: "Öffentlicher Dienst · ein sehr großes Backlog",
+          category: "Öffentlicher Dienst · Product Management",
           title: "Das Gesundheitsportal",
-          subtitle:
+          metric: "18 Monate · 300+ Anforderungen · Ein sehr großes Backlog",
+          role: "Lead Product Owner",
+          work: [
+            "Orchestrierung & Priorisierung",
+            "Stakeholder Management",
+            "Backlog & Requirements Management",
+            "Steuerung der agilen Delivery",
+          ],
+          storyIntro:
             "Eine große Ideenliste. Ein sehr großes Backlog. Achtzehn Monate später: Go-Live.",
-          text: "Es begann mit einer langen Liste aus Ideen, Wünschen und Anforderungen — und Diskussionen darüber, was zuerst kommen soll. Also saßen wir vor einem sehr großen Backlog. Wir schoben um, diskutierten, einigten uns, priorisierten. Dann nochmal. Und nochmal. Was folgte: unzählige Gespräche, Verhandlungen, Änderungen, Iterationen und Development-Sprints. Achtzehn Monate später ging das Gesundheitsportal live — ein digitaler Service für Bürger, Organisationen und Gesundheitsbehörden.",
-          metric: "18 Monate · Ideenliste → Go-Live",
+          story:
+            "Es begann mit einer langen Liste aus Ideen, Wünschen und Anforderungen — und Diskussionen darüber, was zuerst kommen soll. Also saßen wir vor einem sehr großen Backlog. Wir schoben um, diskutierten, einigten uns, priorisierten. Dann nochmal. Und nochmal. Was folgte: unzählige Gespräche, Verhandlungen, Änderungen, Iterationen und Development-Sprints. Achtzehn Monate später ging das Gesundheitsportal live — ein digitaler Service für Bürger, Organisationen und Gesundheitsbehörden.",
           image: "/images/Gesundheitsportal_Illustration.png",
-          span: "default",
         },
         {
           id: "automotive",
           number: "02",
-          category: "Automotive · ein Ort statt vieler Systeme",
+          category: "Automotive · Agile Entwicklung",
           title: "Die AfterSales-Plattform",
-          subtitle: "Ein Ort statt vieler Systeme. Und dann fing die eigentliche Arbeit an.",
-          text: "Das Ziel klang einfach: aus einer Welt unterschiedlicher B2B-AfterSales-Systeme einen Ort machen, an dem Leute Dinge erledigen können. Was folgte, war alles andere als einfach. Feature um Feature, Integration um Integration, Markt um Markt. Über mehr als 40 Sprints habe ich versucht, Abhängigkeiten zu erkennen, Risiken klein zu halten und das Ganze in Bewegung zu behalten. Es kam immer etwas, das wir nicht vorhergesehen hatten. Aber mit einem starken Team, einer guten Portion Pragmatismus und ziemlich viel Spaß unterwegs haben wir’s hingekriegt — Sprint für Sprint.",
-          metric: "40+ Sprints · Europa und darüber hinaus",
+          metric: "Ein Ort statt vieler Systeme",
+          role: "Product Owner & Co-Delivery Lead",
+          work: [
+            "Feature-Spezifikation",
+            "Komplexe Integrationen",
+            "Agile Delivery Management",
+            "Internationale Rollouts",
+          ],
+          storyIntro:
+            "Ein Ort statt vieler Systeme. Und dann fing die eigentliche Arbeit an.",
+          story:
+            "Das Ziel klang einfach: aus einer Welt unterschiedlicher B2B-AfterSales-Systeme einen Ort machen, an dem Leute Dinge erledigen können. Was folgte, war alles andere als einfach. Feature um Feature, Integration um Integration, Markt um Markt. Über mehr als 40 Sprints habe ich versucht, Abhängigkeiten zu erkennen, Risiken klein zu halten und das Ganze in Bewegung zu behalten. Es kam immer etwas, das wir nicht vorhergesehen hatten. Aber mit einem starken Team, einer guten Portion Pragmatismus und ziemlich viel Spaß unterwegs haben wir’s hingekriegt — Sprint für Sprint.",
           image: "/images/Aftersales_Illustration.png",
-          span: "default",
         },
         {
           id: "innovation",
           number: "03",
-          category: "Workshops · leere Wände · klebrige Zettel",
+          category: "Workshops · Innovation · Design Thinking",
           title: "Wenn niemand weiß, was als Nächstes kommt",
-          subtitle: "Von „keine Ahnung“ zu „warte… das könnte klappen“",
-          text: "Ich freue mich über Räume mit leerer Wand, Sticky Notes und Menschen, die das Problem unterschiedlich sehen. Über 50 Workshops später weiß ich: Die erste Idee ist selten die gute. Wir haben viel ausprobiert, einiges verworfen, und ab und zu war ich genauso unsicher wie alle anderen. Genau dann wird’s interessant — besonders, wenn AI und neue Technik plötzlich Teil der Frage werden.",
           metric: "50+ Workshops · Idee → Versuch → Lernen",
+          role: "Innovation Manager / Design Thinking Workshop Facilitator",
+          work: [
+            "Problem Framing",
+            "Customer Journey Mapping",
+            "Ideation",
+            "Geschäftsmodellentwicklung",
+          ],
+          storyIntro: "Von „keine Ahnung“ zu „warte… das könnte klappen“",
+          story:
+            "Ich freue mich über Räume mit leerer Wand, Sticky Notes und Menschen, die das Problem unterschiedlich sehen. Über 50 Workshops später weiß ich: Die erste Idee ist selten die gute. Wir haben viel ausprobiert, einiges verworfen, und ab und zu war ich genauso unsicher wie alle anderen. Genau dann wird’s interessant — besonders, wenn AI und neue Technik plötzlich Teil der Frage werden.",
           image: "/images/DesignThinking_Illustration.png",
-          span: "full",
         },
       ],
+      statement: {
+        lines: ["Verstehen.", "Gestalten.", "Machen."],
+      },
     },
     curious: {
       kicker: "Offene Fragen",
@@ -103,16 +135,16 @@ export const content = {
       intro: "Dinge, über die ich gerne weiter nachdenke — auch nach Feierabend.",
       items: [
         {
-          title: "Produkte, die bleiben",
-          text: "Warum klebt manches am Alltag fest — und anderes verschwindet nach dem Launch wieder?",
+          title: "Produkte, die einschlagen",
+          text: "Ich liebe Produkte, die einen echten Unterschied machen. Aber wissen wir wirklich, was Menschen wollen, bevor wir es bauen?",
         },
         {
           title: "Menschen + Maschinen",
-          text: "Wie sieht gute Zusammenarbeit aus, wenn ein Teil des Teams kein Mensch mehr ist?",
+          text: "Wie integrieren wir AI sinnvoll in Product Management, agile Arbeit und kreative Prozesse? Und wie sieht gute Zusammenarbeit aus, wenn ein Teil des Teams kein Mensch mehr ist?",
         },
         {
-          title: "Agil ohne Theater",
-          text: "Was bleibt von Agilität übrig, wenn die Organisation groß und unübersichtlich wird?",
+          title: "Zwischen Sprint und Marathon",
+          text: "Ich liebe agiles Arbeiten und kontinuierlichen Fortschritt. Aber wie schaffen wir Raum für Kreativität, wenn der Zug immer schneller fährt?",
         },
       ],
     },
@@ -136,17 +168,17 @@ export const content = {
         {
           number: "01",
           title: "Vertrauen zeigt sich, wenn’s schwierig wird.",
-          text: "Wenn etwas schiefläuft, hilft kein Schönreden. Offen damit umgehen, ehrlich sein und gemeinsam nach vorne schauen – darauf kommt es an.",
+          text: "Deshalb spreche ich Probleme lieber früh an, statt sie schönzureden oder in Statusreports verschwinden zu lassen.",
         },
         {
           number: "02",
-          title: "Es wird meistens teurer als geplant.",
-          text: "Fast immer. Neue Erkenntnisse, neue Anforderungen, Dinge, die man vorher nicht gesehen hat. Entscheidend ist nicht, dass alles nach Plan läuft – sondern dass man vernünftig damit umgeht.",
+          title: "Es kommt meistens anders als geplant.",
+          text: "Deshalb bleibe ich pragmatisch und konstruktiv – auch wenn unterwegs mal alles anders kommt als gedacht.",
         },
         {
           number: "03",
           title: "Manchmal muss man sich einfach gegenübersitzen.",
-          text: "Teams können über Chats, Calls und Tools unglaublich viel schaffen. Aber für manche Dinge braucht es einen Tisch, ein paar Menschen und ein echtes Gespräch.",
+          text: "Deshalb schaffe ich bewusst Raum für echte Gespräche – gerade dann, wenn ein Chat oder ein weiterer Termin im Kalender nicht mehr weiterhilft.",
         },
       ],
     },
@@ -322,8 +354,9 @@ export const content = {
     hero: {
       greeting: "Christoph Wannemacher",
       headlineLines: ["Ideas.", "Do."],
+      keywords: "Innovation · Product Management · Transformation",
       valueProp:
-        "I'm curious about almost anything that's new and a little tricky. I like sorting thoughts, trying things out, and turning them into something real.",
+        "I like good ideas and tricky challenges. Even more, I like the moment when clarity emerges and ideas turn into something real.",
       cta: "Say hi on LinkedIn",
     },
     how: {
@@ -334,61 +367,92 @@ export const content = {
         {
           number: "01",
           title: "Getting to know people",
-          text: "I want to know who I’m working with — not just the role. Trust makes almost everything easier.",
+          subtitle: "Build trust!",
+          text: "I want to know who I’m working with — not just what role someone has. Trust makes a lot of things easier and creates space for honest conversations.",
         },
         {
           number: "02",
           title: "Clearing the fog",
-          text: "I love the moment when chaotic creativity suddenly becomes a direction. When many thoughts turn into something everyone can say yes to: Yes. That’s where we want to go.",
+          subtitle: "Chaos → direction!",
+          text: "I like the moment when many thoughts slowly become a direction. When chaotic creativity turns into something everyone can say yes to: Yes. That’s where we want to go.",
         },
         {
           number: "03",
           title: "Working together",
-          text: "Not alone at a desk. Prefer people who bring their own perspective and expertise. When something emerges that none of us could have built alone — that’s what makes the difference for me.",
+          subtitle: "Connect perspectives!",
+          text: "I prefer working with people who bring their own perspective and expertise. When something emerges together that none of us could have built alone, that’s what makes the difference for me.",
         },
       ],
     },
     work: {
       kicker: "Stories from the road",
-      heading: "Things I've stumbled into",
-      intro:
-        "Not a résumé. A few adventures.",
+      heading: "Things I've helped shape",
+      intro: "Not a résumé. A few adventures.",
+      learnMore: "Learn more →",
+      back: "← Back",
+      roleLabel: "My role",
+      workLabel: "My work",
       projects: [
         {
           id: "health-portal",
           number: "01",
-          category: "Public service · one very large backlog",
+          category: "Public sector · Product Management",
           title: "The health portal",
-          subtitle:
+          metric: "18 months · 300+ requirements · A very large backlog",
+          role: "Lead Product Owner",
+          work: [
+            "Orchestration & prioritization",
+            "Stakeholder management",
+            "Backlog & requirements management",
+            "Steering agile delivery",
+          ],
+          storyIntro:
             "A big list of ideas. A very large backlog. Eighteen months later: go-live.",
-          text: "It started with a big list of ideas, wishes and requirements — and discussions on what should come first. So we sat together with a very large backlog. We moved things around, discussed, aligned, prioritized. Then we did it again. And again. What followed were countless discussions, negotiations, changes, iterations and development sprints. Eighteen months later, we shipped the health portal — a digital service used by citizens, organisations and health authorities.",
-          metric: "18 months · ideas list → go-live",
+          story:
+            "It started with a big list of ideas, wishes and requirements — and discussions on what should come first. So we sat together with a very large backlog. We moved things around, discussed, aligned, prioritized. Then we did it again. And again. What followed were countless discussions, negotiations, changes, iterations and development sprints. Eighteen months later, we shipped the health portal — a digital service used by citizens, organisations and health authorities.",
           image: "/images/Gesundheitsportal_Illustration.png",
-          span: "default",
         },
         {
           id: "automotive",
           number: "02",
-          category: "Automotive · one place instead of many systems",
+          category: "Automotive · Agile development",
           title: "The AfterSales platform",
-          subtitle: "One place instead of many systems. And then the real work began.",
-          text: "The goal was simple: turn a world of different B2B AfterSales systems into one place where people could get things done. What followed was anything but simple. Feature after feature, system integration after system integration, market after market. Across more than 40 sprints, I tried to spot dependencies, reduce risks and keep the whole thing moving. There was always something we hadn't seen coming. But with a great team, a good dose of pragmatism and plenty of fun along the way, we figured it out — one sprint at a time.",
-          metric: "40+ sprints · Europe and beyond",
+          metric: "One place instead of many systems",
+          role: "Product Owner & Co-Delivery Lead",
+          work: [
+            "Feature specification",
+            "Complex integrations",
+            "Agile delivery management",
+            "International rollouts",
+          ],
+          storyIntro:
+            "One place instead of many systems. And then the real work began.",
+          story:
+            "The goal was simple: turn a world of different B2B AfterSales systems into one place where people could get things done. What followed was anything but simple. Feature after feature, system integration after system integration, market after market. Across more than 40 sprints, I tried to spot dependencies, reduce risks and keep the whole thing moving. There was always something we hadn't seen coming. But with a great team, a good dose of pragmatism and plenty of fun along the way, we figured it out — one sprint at a time.",
           image: "/images/Aftersales_Illustration.png",
-          span: "default",
         },
         {
           id: "innovation",
           number: "03",
-          category: "Workshops · blank walls · sticky notes",
+          category: "Workshops · Innovation · Design Thinking",
           title: "When nobody knows what’s next",
-          subtitle: "From “no idea” to “wait… this could work”",
-          text: "I light up in rooms with a blank wall, sticky notes and people who see the problem differently. Fifty-plus workshops later I know: the first idea is rarely the good one. We’ve tried a lot, thrown plenty away, and sometimes I was just as unsure as everyone else. That’s usually when it gets interesting — especially when AI and new tech suddenly join the question.",
           metric: "50+ workshops · idea → try → learn",
+          role: "Innovation Manager / Design Thinking Workshop Facilitator",
+          work: [
+            "Problem framing",
+            "Customer journey mapping",
+            "Ideation",
+            "Business model development",
+          ],
+          storyIntro: "From “no idea” to “wait… this could work”",
+          story:
+            "I light up in rooms with a blank wall, sticky notes and people who see the problem differently. Fifty-plus workshops later I know: the first idea is rarely the good one. We’ve tried a lot, thrown plenty away, and sometimes I was just as unsure as everyone else. That’s usually when it gets interesting — especially when AI and new tech suddenly join the question.",
           image: "/images/DesignThinking_Illustration.png",
-          span: "full",
         },
       ],
+      statement: {
+        lines: ["Understand.", "Shape.", "Make."],
+      },
     },
     curious: {
       kicker: "Open questions",
@@ -396,16 +460,16 @@ export const content = {
       intro: "Things I keep turning over — at work and after hours.",
       items: [
         {
-          title: "Products that stick",
-          text: "Why do some products cling to everyday life — while others vanish after launch?",
+          title: "Products that hit home",
+          text: "I love products that make a real difference. But do we really know what people want before we build it?",
         },
         {
-          title: "Humans + machines",
-          text: "What does good teamwork look like when part of the team isn’t human anymore?",
+          title: "People + machines",
+          text: "How do we meaningfully integrate AI into product management, agile work, and creative processes? And what does good collaboration look like when part of the team is no longer human?",
         },
         {
-          title: "Agile without the theatre",
-          text: "What’s left of agile when the organisation gets big and messy?",
+          title: "Between sprint and marathon",
+          text: "I love agile work and continuous progress. But how do we make space for creativity when the train keeps getting faster?",
         },
       ],
     },
@@ -429,17 +493,17 @@ export const content = {
         {
           number: "01",
           title: "Trust shows up when things get hard.",
-          text: "When something goes wrong, sugarcoating doesn’t help. Be open, be honest, and look forward together — that’s what matters.",
+          text: "That’s why I raise problems early — instead of sugarcoating them or letting them disappear into status reports.",
         },
         {
           number: "02",
-          title: "It usually costs more than planned.",
-          text: "Almost always. New insights, new requirements, things you didn’t see coming. What matters isn’t that everything goes to plan — it’s handling it sensibly.",
+          title: "Things usually turn out differently than planned.",
+          text: "That’s why I stay pragmatic and constructive — even when things take a different path than expected.",
         },
         {
           number: "03",
           title: "Sometimes you just need to sit across from each other.",
-          text: "Teams can get an incredible amount done over chats, calls, and tools. But some things need a table, a few people, and a real conversation.",
+          text: "That’s why I deliberately make space for real conversations — especially when another chat or calendar invite no longer helps.",
         },
       ],
     },

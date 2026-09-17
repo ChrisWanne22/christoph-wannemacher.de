@@ -36,12 +36,6 @@ export function BeliefTiles({ items }: { items: readonly BeliefItem[] }) {
                 <p className="mt-3 flex-1 text-sm leading-7 text-muted">
                   {item.text}
                 </p>
-                <span
-                  className="tile-arrow mt-6 inline-flex text-sm text-foreground"
-                  aria-hidden
-                >
-                  →
-                </span>
               </article>
             </CwTileFrame>
           </Reveal>

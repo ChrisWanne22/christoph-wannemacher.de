@@ -197,6 +197,20 @@ body {
   display: block;
 }
 
+.hero-keywords {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: 0.04em;
+  color: var(--foreground);
+}
+
+@media (min-width: 640px) {
+  .hero-keywords {
+    font-size: 0.9375rem;
+  }
+}
+
 .hero-lead {
   font-size: 0.9375rem;
   font-weight: 400;
@@ -556,9 +570,14 @@ body {
   margin-top: 1.5rem;
 }
 
+.tunnel-content .hero-keywords {
+  max-width: 36rem;
+  margin-top: 1.25rem;
+}
+
 .tunnel-content .hero-lead {
   max-width: 28rem;
-  margin-top: 1.5rem;
+  margin-top: 1rem;
 }
 
 .tunnel-content .hero-actions {
@@ -699,6 +718,14 @@ body {
     margin-top: -28vh;
     padding-top: 2rem;
   }
+}
+
+.capability-subtitle {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+  color: var(--foreground);
 }
 
 /* ── Single 3D cube — reference element ── */

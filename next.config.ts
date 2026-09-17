@@ -28,10 +28,17 @@ const nextConfig: NextConfig = {
     NEXT_PUBLIC_BASE_PATH: pagesBasePath,
   },
 
-  // Dev-only: allow 127.0.0.1 to load Turbopack client chunks.
+  // Dev-only: allow listed hosts to load Turbopack client chunks.
   // Safari requests crossorigin scripts with an Origin header; without this,
   // Next returns 403 → React never hydrates → menu/hamburger does nothing.
-  allowedDevOrigins: ["127.0.0.1"],
+  // Optional LAN testing: DEV_LAN_HOST=192.168.x.x npm run dev -- -H 0.0.0.0
+  allowedDevOrigins: [
+    "127.0.0.1",
+    ...(process.env.DEV_LAN_HOST ?? "")
+      .split(",")
+      .map((host) => host.trim())
+      .filter(Boolean),
+  ],
 };
 
 export default nextConfig;
