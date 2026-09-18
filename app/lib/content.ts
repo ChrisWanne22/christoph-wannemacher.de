@@ -20,6 +20,7 @@ export const content = {
     scrollNav: {
       hero: "Start",
       how: "Was mich antreibt",
+      brain: "Mein Denken",
       work: "Geschichten",
       beliefs: "Unterwegs gelernt",
       curious: "Noch neugierig",
@@ -56,6 +57,45 @@ export const content = {
           title: "Zusammen arbeiten",
           subtitle: "Perspektiven verbinden!",
           text: "Ich arbeite am liebsten mit Menschen, die ihre eigene Perspektive und Expertise mitbringen. Wenn daraus gemeinsam etwas entsteht, das keiner allein hätte schaffen können, macht das für mich den Unterschied.",
+        },
+      ],
+    },
+    brain: {
+      kicker: "Mein Denken",
+      heading: "Ein Blick in mein Gehirn.",
+      intro:
+        "Fünf Stärken, die prägen, wie ich denke, Entscheidungen treffe und mit Menschen arbeite.",
+      hint: "Klick auf einen Cube.",
+      items: [
+        {
+          id: "vertrauen",
+          label: "VERTRAUEN",
+          title: "Echte Verbindungen",
+          text: "Ich investiere in Beziehungen. Wenn mir Menschen und ein gemeinsames Ziel wichtig sind, bleibe ich auch dann dran, wenn es schwierig wird.",
+        },
+        {
+          id: "ownership",
+          label: "OWNERSHIP",
+          title: "Ich stehe dazu.",
+          text: "Wenn ich etwas zusage, nehme ich es ernst. Verlässlichkeit ist für mich keine Eigenschaft im Lebenslauf, sondern etwas, das andere spüren sollen.",
+        },
+        {
+          id: "individualitaet",
+          label: "INDIVIDUALITÄT",
+          title: "Menschen sind keine Rollen.",
+          text: "Mich interessiert, was Menschen besonders macht – was sie antreibt, worin sie gut sind und wie daraus ein starkes Team entstehen kann.",
+        },
+        {
+          id: "potenzial",
+          label: "POTENZIAL",
+          title: "Potenzial sichtbar machen",
+          text: "Ich mag den Moment, in dem jemand über sich hinauswächst. Ein neuer Gedanke, mehr Selbstvertrauen oder ein kleiner Fortschritt kann viel verändern.",
+        },
+        {
+          id: "logik",
+          label: "LOGIK",
+          title: "Eine Ebene tiefer",
+          text: "Ich möchte nicht nur wissen, was passiert. Ich will verstehen, warum. Erst wenn ein komplexes Problem klarer wird, kann daraus eine gute Entscheidung entstehen.",
         },
       ],
     },
@@ -345,6 +385,7 @@ export const content = {
     scrollNav: {
       hero: "Start",
       how: "What lights me up",
+      brain: "My thinking",
       work: "Stories",
       beliefs: "Lessons",
       curious: "Still curious",
@@ -381,6 +422,45 @@ export const content = {
           title: "Working together",
           subtitle: "Connect perspectives!",
           text: "I prefer working with people who bring their own perspective and expertise. When something emerges together that none of us could have built alone, that’s what makes the difference for me.",
+        },
+      ],
+    },
+    brain: {
+      kicker: "My thinking",
+      heading: "A look inside my brain.",
+      intro:
+        "Five strengths that shape how I think, make decisions, and work with people.",
+      hint: "Click a cube.",
+      items: [
+        {
+          id: "vertrauen",
+          label: "VERTRAUEN",
+          title: "Real connections",
+          text: "I invest in relationships. When people and a shared goal matter to me, I stay with it — even when it gets difficult.",
+        },
+        {
+          id: "ownership",
+          label: "OWNERSHIP",
+          title: "I stand by it.",
+          text: "When I commit to something, I take it seriously. Reliability isn’t a line on a résumé for me — it’s something others should feel.",
+        },
+        {
+          id: "individualitaet",
+          label: "INDIVIDUALITÄT",
+          title: "People aren’t roles.",
+          text: "I’m interested in what makes people distinct — what drives them, what they’re good at, and how that can become a strong team.",
+        },
+        {
+          id: "potenzial",
+          label: "POTENZIAL",
+          title: "Making potential visible",
+          text: "I love the moment when someone grows beyond themselves. A new thought, more confidence, or a small step forward can change a lot.",
+        },
+        {
+          id: "logik",
+          label: "LOGIK",
+          title: "One layer deeper",
+          text: "I don’t just want to know what is happening. I want to understand why. Only when a complex problem becomes clearer can a good decision emerge.",
         },
       ],
     },

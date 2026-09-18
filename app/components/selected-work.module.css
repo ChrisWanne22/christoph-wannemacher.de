@@ -88,14 +88,29 @@
 }
 
 .scene {
-  height: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
   perspective: 1400px;
   perspective-origin: center;
 }
 
 .card {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  color: inherit;
+  overflow: hidden;
+}
+
+.flipper {
+  position: relative;
   display: grid;
+  flex: 1;
   height: 100%;
   transform-style: preserve-3d;
   transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
@@ -113,7 +128,6 @@
   min-width: 0;
   height: 100%;
   background: var(--surface);
-  border: 1px solid var(--line);
   color: inherit;
   overflow: hidden;
   backface-visibility: hidden;
@@ -353,7 +367,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .card {
+  .flipper {
     transition: none;
   }
 }

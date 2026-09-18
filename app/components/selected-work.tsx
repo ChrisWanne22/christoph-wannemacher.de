@@ -71,98 +71,94 @@ function AdventureCard({
   const close = () => setFlipped(false);
 
   return (
-    <div className={styles.scene}>
-      <div
-        className={`${styles.card} ${flipped ? styles.isFlipped : ""}`}
-        data-flipped={flipped ? "true" : "false"}
-      >
+    <article
+      className={styles.card}
+      data-flipped={flipped ? "true" : "false"}
+    >
+      <div className={styles.media}>
+        <Image
+          src={withBasePath(project.image)}
+          alt=""
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 720px"
+          className={styles.mediaImage}
+        />
+      </div>
+
+      <div className={styles.scene}>
         <div
-          id={frontId}
-          className={`${styles.face} ${styles.front}`}
-          aria-hidden={flipped}
-          inert={flipped ? true : undefined}
+          className={`${styles.flipper} ${flipped ? styles.isFlipped : ""}`}
         >
-          <div className={styles.media}>
-            <Image
-              src={withBasePath(project.image)}
-              alt=""
-              fill
-              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 720px"
-              className={styles.mediaImage}
-            />
-          </div>
-          <div className={styles.body}>
-            <div className={styles.meta}>
-              <span className={styles.number}>{project.number}</span>
-              <span className={styles.category}>{project.category}</span>
-            </div>
+          <div
+            id={frontId}
+            className={`${styles.face} ${styles.front}`}
+            aria-hidden={flipped}
+            inert={flipped ? true : undefined}
+          >
+            <div className={styles.body}>
+              <div className={styles.meta}>
+                <span className={styles.number}>{project.number}</span>
+                <span className={styles.category}>{project.category}</span>
+              </div>
 
-            <h3 className={styles.title}>{project.title}</h3>
-            <p className={styles.metric}>{project.metric}</p>
-            <p className={styles.storyIntro}>{project.storyIntro}</p>
-            <p className={styles.text}>{project.story}</p>
+              <h3 className={styles.title}>{project.title}</h3>
+              <p className={styles.metric}>{project.metric}</p>
+              <p className={styles.storyIntro}>{project.storyIntro}</p>
+              <p className={styles.text}>{project.story}</p>
 
-            <div className={styles.footer}>
-              <button
-                ref={openButtonRef}
-                type="button"
-                className={styles.cta}
-                aria-expanded={flipped}
-                aria-controls={backId}
-                onClick={open}
-              >
-                {learnMore}
-              </button>
+              <div className={styles.footer}>
+                <button
+                  ref={openButtonRef}
+                  type="button"
+                  className={styles.cta}
+                  aria-expanded={flipped}
+                  aria-controls={backId}
+                  onClick={open}
+                >
+                  {learnMore}
+                </button>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div
-          id={backId}
-          className={`${styles.face} ${styles.back}`}
-          aria-hidden={!flipped}
-          inert={!flipped ? true : undefined}
-        >
-          <div className={styles.media}>
-            <Image
-              src={withBasePath(project.image)}
-              alt=""
-              fill
-              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 720px"
-              className={styles.mediaImage}
-            />
-          </div>
-          <div className={styles.body}>
-            <div className={styles.detailBlock}>
-              <p className={styles.detailLabel}>{roleLabel}</p>
-              <p className={styles.detailValue}>{project.role}</p>
-            </div>
+          <div
+            id={backId}
+            className={`${styles.face} ${styles.back}`}
+            aria-hidden={!flipped}
+            inert={!flipped ? true : undefined}
+          >
+            <div className={styles.body}>
+              <div className={styles.detailBlock}>
+                <p className={styles.detailLabel}>{roleLabel}</p>
+                <p className={styles.detailValue}>{project.role}</p>
+              </div>
 
-            <div className={styles.detailBlock}>
-              <p className={styles.detailLabel}>{workLabel}</p>
-              <ul className={styles.workList}>
-                {project.work.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
+              <div className={styles.detailBlock}>
+                <p className={styles.detailLabel}>{workLabel}</p>
+                <ul className={styles.workList}>
+                  {project.work.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
 
-            <div className={styles.footer}>
-              <button
-                ref={backButtonRef}
-                type="button"
-                className={styles.cta}
-                aria-expanded={flipped}
-                aria-controls={frontId}
-                onClick={close}
-              >
-                {back}
-              </button>
+              <div className={styles.footer}>
+                <button
+                  ref={backButtonRef}
+                  type="button"
+                  className={styles.cta}
+                  aria-expanded={flipped}
+                  aria-controls={frontId}
+                  onClick={close}
+                >
+                  {back}
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </article>
   );
 }
 

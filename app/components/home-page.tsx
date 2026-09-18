@@ -3,6 +3,7 @@
 import { useMemo } from "react";
 import { LINKEDIN_URL } from "../lib/content";
 import { BeliefTiles } from "./belief-tiles";
+import { BrainSection } from "./brain-section";
 import { CapabilityList } from "./capability-list";
 import { CubicTunnelHero } from "./cubic-tunnel-hero";
 import { ExternalLinkIcon } from "./external-link-icon";
@@ -22,6 +23,7 @@ export function HomePage() {
     () => [
       { id: "top", label: t.scrollNav.hero },
       { id: "how", label: t.scrollNav.how },
+      { id: "brain", label: t.scrollNav.brain },
       { id: "work", label: t.scrollNav.work },
       { id: "beliefs", label: t.scrollNav.beliefs },
       { id: "curious", label: t.scrollNav.curious },
@@ -89,6 +91,8 @@ export function HomePage() {
             <CapabilityList items={t.how.items} />
           </div>
         </section>
+
+        <BrainSection brain={t.brain} />
 
         {/* ── STORIES ── */}
         <SelectedWork work={t.work} />

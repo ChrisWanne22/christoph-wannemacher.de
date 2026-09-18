@@ -1,0 +1,257 @@
+.section {
+  position: relative;
+  background: var(--background);
+  overflow: hidden;
+}
+
+.inner {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 4.5rem 1.25rem 5rem;
+}
+
+@media (min-width: 640px) {
+  .inner {
+    padding: 6rem 2rem 6.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .inner {
+    padding: 7.5rem 2rem 8rem;
+  }
+}
+
+.heading {
+  margin-top: 0.75rem;
+  max-width: 22rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--foreground);
+}
+
+@media (min-width: 640px) {
+  .heading {
+    max-width: 36rem;
+    font-size: 2.25rem;
+    line-height: 1.15;
+  }
+}
+
+.intro {
+  margin-top: 1rem;
+  max-width: 34rem;
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+@media (min-width: 640px) {
+  .intro {
+    margin-top: 1.25rem;
+    font-size: 1.0625rem;
+    line-height: 1.75;
+  }
+}
+
+.layout {
+  margin-top: 2.75rem;
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .layout {
+    margin-top: 3.5rem;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: 3.5rem;
+    align-items: stretch;
+  }
+}
+
+.stageWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 0;
+}
+
+.stage {
+  position: relative;
+  width: min(100%, 34rem);
+  aspect-ratio: 1 / 1;
+}
+
+@media (min-width: 640px) {
+  .stage {
+    width: min(100%, 38rem);
+  }
+}
+
+@media (min-width: 1024px) {
+  .stage {
+    width: 100%;
+  }
+}
+
+.brainSvg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.structureSquare {
+  fill: color-mix(in srgb, var(--foreground) 8%, var(--surface));
+  stroke: color-mix(in srgb, var(--foreground) 14%, transparent);
+  stroke-width: 0.35;
+}
+
+.strengthSquare {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0.2rem;
+  border: 1px solid color-mix(in srgb, var(--foreground) 22%, transparent);
+  background: var(--surface);
+  color: var(--foreground);
+  cursor: pointer;
+  appearance: none;
+  transform: translate(-50%, -50%);
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.strengthSquare:hover,
+.strengthSquare:focus-visible {
+  background: color-mix(in srgb, var(--foreground) 4%, var(--surface));
+  border-color: var(--foreground);
+  outline: none;
+}
+
+.strengthActive {
+  background: var(--foreground);
+  border-color: var(--foreground);
+  color: var(--background);
+  transform: translate(-50%, -50%) scale(1.04);
+  z-index: 2;
+}
+
+.strengthActive:hover,
+.strengthActive:focus-visible {
+  background: var(--foreground);
+  color: var(--background);
+}
+
+.strengthCaption {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  max-width: 100%;
+  text-align: center;
+  pointer-events: none;
+}
+
+.strengthCaptionNum {
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: clamp(0.55rem, 1.6vw, 0.7rem);
+  letter-spacing: 0.1em;
+  line-height: 1;
+}
+
+.strengthCaptionRule {
+  display: block;
+  width: 0.7rem;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.55;
+}
+
+.strengthCaptionLabel {
+  font-size: clamp(0.42rem, 1.3vw, 0.55rem);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.hint {
+  margin-top: 1.25rem;
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted-soft);
+  text-align: center;
+}
+
+.panel {
+  min-width: 0;
+  padding: 0.25rem 0 0;
+}
+
+@media (min-width: 1024px) {
+  .panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem 0 2rem 0.5rem;
+    min-height: 18rem;
+  }
+}
+
+.panelLabel {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted-soft);
+}
+
+.panelTitle {
+  margin-top: 0.85rem;
+  max-width: 16rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  color: var(--foreground);
+}
+
+@media (min-width: 640px) {
+  .panelTitle {
+    font-size: 1.875rem;
+  }
+}
+
+.panelText {
+  margin-top: 1rem;
+  max-width: 28rem;
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  color: var(--muted);
+}
+
+@media (min-width: 640px) {
+  .panelText {
+    font-size: 1.0625rem;
+    line-height: 1.8;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .strengthSquare {
+    transition: none;
+  }
+
+  .strengthActive {
+    transform: translate(-50%, -50%);
+  }
+}
