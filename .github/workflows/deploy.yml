@@ -3,7 +3,7 @@ name: Deploy Next.js site to Pages
 on:
   push:
     branches:
-      - experiment/struktur-v2
+      - main
   workflow_dispatch:
 
 permissions:
