@@ -180,7 +180,12 @@ export function TunnelCube({
   rotateX,
   rotateY,
   opacity,
-}: TunnelCubeData) {
+  index = 0,
+}: TunnelCubeData & { index?: number }) {
+  // Deterministic per-cube rhythm so the float never looks synchronised.
+  const floatDuration = 5.5 + ((index * 37) % 23) / 10;
+  const floatDelay = -((index * 53) % 61) / 10;
+
   return (
     <div
       className="tunnel-cube-slot"
@@ -190,6 +195,8 @@ export function TunnelCube({
         ["--cube-size" as string]: `${size}px`,
         ["--cube-rotate-x" as string]: `${rotateX}deg`,
         ["--cube-rotate-y" as string]: `${rotateY}deg`,
+        ["--float-duration" as string]: `${floatDuration}s`,
+        ["--float-delay" as string]: `${floatDelay}s`,
       }}
       aria-hidden
     >

@@ -594,6 +594,78 @@ body {
   pointer-events: auto;
 }
 
+/* ── Hero effect: living cube room (pointer parallax + float) ── */
+.tunnel-section-alive .tunnel-camera {
+  will-change: transform;
+}
+
+/* Light cone follows the cursor and reveals the cubes where you look */
+.tunnel-section-alive .tunnel-glow {
+  translate: calc(var(--hero-light-x, 0%) * 2.2) calc(var(--hero-light-y, 0%) * 2.2);
+}
+
+.tunnel-section-alive .tunnel-vignette {
+  background: radial-gradient(
+    ellipse 70% 62% at calc(50% + var(--hero-light-x, 0%))
+      calc(42% + var(--hero-light-y, 0%)),
+    transparent 10%,
+    rgba(243, 243, 243, 0.22) 46%,
+    rgba(240, 240, 240, 0.94) 100%
+  );
+}
+
+.tunnel-section-alive .cube-unit-body {
+  animation: cube-float var(--float-duration, 6s) ease-in-out
+    var(--float-delay, 0s) infinite;
+}
+
+.tunnel-section-alive .cube-unit-shadow {
+  animation: cube-float-shadow var(--float-duration, 6s) ease-in-out
+    var(--float-delay, 0s) infinite;
+}
+
+@keyframes cube-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(calc(var(--cube-size, 40px) * -0.12));
+  }
+}
+
+@keyframes cube-float-shadow {
+  0%,
+  100% {
+    opacity: 1;
+    scale: 1;
+  }
+  50% {
+    opacity: 0.6;
+    scale: 0.86;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tunnel-section-alive .cube-unit-body,
+  .tunnel-section-alive .cube-unit-shadow {
+    animation: none;
+  }
+
+  .tunnel-section-alive .tunnel-glow {
+    translate: none;
+  }
+
+  .tunnel-section-alive .tunnel-vignette {
+    background: radial-gradient(
+      ellipse 78% 68% at 50% 42%,
+      transparent 6%,
+      rgba(243, 243, 243, 0.28) 48%,
+      rgba(240, 240, 240, 0.94) 100%
+    );
+  }
+}
+
 /* ── Global section scroll navigation ── */
 .section-scroll-nav {
   position: fixed;
