@@ -111,7 +111,6 @@ export function SiteHeader({
   }, [menuOpen]);
 
   const showOverHeroStyle = overHero && !pastHero;
-  const hideLogo = showOverHeroStyle && !compact;
 
   const links: NavLink[] = [
     { href: withBasePath("/#top"), label: t.nav.home },
@@ -202,11 +201,8 @@ export function SiteHeader({
         >
           <a
             href={withBasePath("/#top")}
-            className={`brand-logo shrink-0 transition-opacity hover:opacity-80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foreground ${
-              hideLogo ? "pointer-events-none invisible w-0 overflow-hidden" : ""
-            }`}
+            className="brand-logo shrink-0 transition-opacity hover:opacity-80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foreground"
             aria-label={t.nav.name}
-            tabIndex={hideLogo ? -1 : undefined}
             onClick={closeMenu}
           >
             <SiteLogo size={compact || pastHero ? "sm" : "md"} />

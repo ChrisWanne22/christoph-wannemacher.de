@@ -267,6 +267,11 @@ body {
   color: var(--foreground);
 }
 
+/* Logo sits in the header from the start; only eases its size when the header compacts. */
+.site-header .site-logo-image {
+  transition: height 0.3s ease;
+}
+
 /* ── Navigation — reference style ── */
 .nav-cw {
   font-size: 0.625rem;
@@ -340,8 +345,7 @@ body {
   }
 
   .tunnel-sticky a,
-  .tunnel-content a,
-  .hero-brand-mark {
+  .tunnel-content a {
     pointer-events: auto !important;
   }
 
@@ -588,49 +592,6 @@ body {
 
 .tunnel-content a {
   pointer-events: auto;
-}
-
-.hero-brand-mark {
-  position: absolute;
-  top: calc(0.85rem + env(safe-area-inset-top, 0px));
-  left: 1.25rem;
-  z-index: 30;
-  display: inline-flex;
-  align-items: center;
-  color: var(--foreground);
-  transition: opacity 0.35s ease;
-}
-
-.hero-brand-mark.is-scrolled {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.hero-brand-mark:hover {
-  opacity: 0.72;
-}
-
-.hero-brand-mark.is-scrolled:hover {
-  opacity: 0;
-}
-
-.hero-brand-mark:focus-visible {
-  outline: 2px solid var(--foreground);
-  outline-offset: 6px;
-}
-
-@media (min-width: 640px) {
-  .hero-brand-mark {
-    top: 1.35rem;
-    left: 2.5rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .hero-brand-mark {
-    top: 1.5rem;
-    left: 3.5rem;
-  }
 }
 
 /* ── Global section scroll navigation ── */
